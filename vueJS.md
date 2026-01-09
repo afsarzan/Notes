@@ -109,6 +109,8 @@
   }
 
   ]; ```
--
+- onMounted() -> can be used to make axios calls to get data from server
+- setup a proxy proery in defineconfig of vite to replace long path with '/api' path
+- 
    
   
