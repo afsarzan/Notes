@@ -46,9 +46,64 @@ db.products.insertMany([
   { name: "Gaming Laptop", price: 85999, category: "Computers", stock: 30, tags: ["gaming"], createdAt: new Date() }
 ]);
 ```
-- Stage,Description,Example Use
-$match,Filters documents,"{ $match: { category: ""Fruit"" } }"
-$project,Shapes/Renames fields,"{ $project: { _id: 0, name: 1 } }"
-$group,Calculates totals/avg,"{ $group: { _id: ""$cat"", total: { $sum: 1 } } }"
-$sort,Reorders results,{ $sort: { totalSales: -1 } }
-$lookup,Joins collections,Joining orders with products.
+ Navigating the Server
+| Action | Command |
+| :--- | :--- |
+| **List Databases** | `show dbs` |
+| **Switch/Create DB** | `use <database_name>` |
+| **List Collections** | `show collections` |
+| **Current DB Stats** | `db.stats()` |
+| **Delete Database** | `db.dropDatabase()` |
+
+---
+
+## 2. CRUD Operations (The Core 4)
+
+### Create
+* **Single:** `db.<collection>.insertOne({ <key>: <value> })`
+* **Multiple:** `db.<collection>.insertMany([{...}, {...}])`
+
+### Read (Search)
+* **All Documents:** `db.<collection>.find()`
+* **With Formatting:** `db.<collection>.find().pretty()`
+* **Match Specific:** `db.<collection>.find({ <field>: <value> })`
+* **Sort Results:** `db.<collection>.find().sort({ <field>: 1 })` *(1: Asc, -1: Desc)*
+* **Limit Results:** `db.<collection>.find().limit(<number>)`
+
+### Update
+* **Update One:** `db.<collection>.updateOne({ <filter_field>: <val> }, { $set: { <new_field>: <new_val> } })`
+* **Increment Value:** `db.<collection>.updateMany({}, { $inc: { <field>: <number> } })`
+* **Add to Array:** `db.<collection>.updateOne({ <filter> }, { $push: { <array_field>: <item> } })`
+
+### Delete
+* **Delete One:** `db.<collection>.deleteOne({ <field>: <value> })`
+* **Delete Many:** `db.<collection>.deleteMany({ <field>: <value> })`
+* **Wipe Collection:** `db.<collection>.drop()`
+
+---
+
+## 3. Query Operators (Filters)
+Use these inside your `.find()` or `.update()` brackets.
+
+| Category | Operator | Usage Example |
+| :--- | :--- | :--- |
+| **Comparison** | `$gt` / `$lt` | `{ price: { $gt: 100 } }` (Greater than) |
+| **Comparison** | `$gte` / `$lte`| `{ price: { $gte: 100 } }` (Greater or equal) |
+| **Comparison** | `$ne` | `{ status: { $ne: "closed" } }` (Not equal) |
+| **Logical** | `$or` | `{ $or: [ {cond1}, {cond2} ] }` |
+| **Logical** | `$and` | `{ $and: [ {cond1}, {cond2} ] }` |
+| **In Array** | `$in` | `{ category: { $in: ["A", "B"] } }` |
+
+---
+
+## 4. Aggregation Pipeline (Processing Data)
+Think of this as a "Filter -> Process -> Output" machine.
+
+
+
+```javascript
+db.<collection>.aggregate([
+  { $match: { <field>: <value> } },           // Step 1: Filter
+  { $group: { _id: "$<field>", total: { $sum: 1 } } }, // Step 2: Group & Count
+  { $sort: { total: -1 } }                    // Step 3: Sort
+])
