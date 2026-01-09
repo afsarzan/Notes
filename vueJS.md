@@ -1,5 +1,5 @@
 ## Vue js 
-- 3 sections -> script, template and styled(scoped) - SFC(Single file compnent)
+- 3 sections -> script, template and styled(scoped) - SFC(Single file compnent) 
 - Two APIs, options and composition
 - directives  ```v-if, v-else, v-else-if, v-for with :key="uniqueId" ```
 - v-bind:href or :href for binding anchor
