@@ -27,6 +27,72 @@
        default: 'Default value'
    });```
 - Above method in child component -> import { defineProps } from 'vue'
+- Computed properties are used to handle complex logic that depends on reactive data
+- ```
+  <script setup>
+      import { ref, computed } from 'vue';
+      
+      // Reactive data
+      const firstName = ref('Jane');
+      const lastName = ref('Doe');
+      
+      // Computed property
+      const fullName = computed(() => {
+        return `${firstName.value} ${lastName.value}`;
+      });
+      </script>
+  ```
+-  Vue uses offical Vue Router library for switching between pages
+-  ```
+   import { createRouter, createWebHistory } from 'vue-router';
+    import Home from './Home.vue';
+    import About from './About.vue';
+    
+    const routes = [
+      { path: '/', component: Home },
+      { path: '/about', component: About }
+    ];
+    
+    const router = createRouter({
+      history: createWebHistory(),
+      routes,
+    });
+    
+    export default router;
+   ```
+  - <router-link>: Creates a clickable link (replaces the standard <a> tag).
+  - <router-view>: A placeholder where the current page component will be rendered.
+  - To protect routes, we use meta property, Use router.beforeEach to check the requiresAuth tag before the navigation is finished.
+  - ```
+    const routes = [
+      { 
+        path: '/dashboard', 
+        component: Dashboard, 
+        // This custom property tells our guard to check for auth
+        meta: { requiresAuth: true } 
+      },
+      { 
+        path: '/login', 
+        component: Login 
+      }
+    ];
+
+    router.beforeEach((to, from) => {
+        // 1. Check if the destination route needs authentication
+        const isAuthRequired = to.matched.some(record => record.meta.requiresAuth);
+        
+        // 2. Check if the user is actually logged in (e.g., from a Pinia store or LocalStorage)
+        const isAuthenticated = !!localStorage.getItem('user_token');
+      
+        // 3. Logic: If auth is required but user isn't logged in, redirect to login
+        if (isAuthRequired && !isAuthenticated) {
+          return { path: '/login' };
+        }
+        
+        // If authorized or route is public, let them through
+        return true; 
+      });
+    ```
 - 
    
   
