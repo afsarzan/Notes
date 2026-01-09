@@ -111,6 +111,24 @@
   ]; ```
 - onMounted() -> can be used to make axios calls to get data from server
 - setup a proxy proery in defineconfig of vite to replace long path with '/api' path
-- 
+- Use Pinia for state management , defineSotre() for setting up store it has, state, getters and actions
+- ```
+    // stores/counter.js
+  import { defineStore } from 'pinia'
+  
+  export const useCounterStore = defineStore('counter', {
+    state: () => {
+      return { count: 0 }
+    },
+    // could also be defined as
+    // state: () => ({ count: 0 })
+    actions: {
+      increment() {
+        this.count++
+      },
+    },
+  })
+  ```
+- two way data binding also use v-model="storeName.propertyName".
    
   
