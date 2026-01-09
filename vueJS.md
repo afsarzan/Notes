@@ -18,4 +18,4 @@
 - To make use of value better use .value property not this binding like in options API
 -  You can also use ```<script setup>``` in script tag the can avoid writing setup method in script element
 -  @submit on form is used to submit forms also we can use @submit.prevent to have prevent default implemented by default
--  
+-  v-model to bind ref to inputs, to access it use .value 
