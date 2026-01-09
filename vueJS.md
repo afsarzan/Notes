@@ -93,6 +93,22 @@
         return true; 
       });
     ```
-- 
+- useRoute to get route path.
+- to handle 404, use /:pathMatch(.*)*
+- ```
+   const routes = [
+  { path: '/', component: Home },
+  { path: '/about', component: About },
+  // ... other routes ...
+
+  // The 404 Catch-all Route
+  { 
+    path: '/:pathMatch(.*)*', 
+    name: 'NotFound', 
+    component: () => import('./views/NotFound.vue') 
+  }
+
+  ]; ```
+-
    
   
