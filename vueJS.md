@@ -130,5 +130,7 @@
   })
   ```
 - two way data binding also use v-model="storeName.propertyName".
+-   <keep-alive> <component :is="currentComponent"></component> is used to preserve state and navigate between different components
+
    
   
