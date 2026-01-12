@@ -39,4 +39,24 @@
 - ErrorBoundaryies
   -   getDerivedStateFromProps and componentDidCatch is used for managing error
 ---
--
+- useEffect expects code inside it to be clear and synchronious , so writing asyncronous code will have to be wrapped with async/await , can't call it directly with try and catch method need to be wrapped in method
+- React code splitting by using React.lazy to load a component asynchronously and <Suspense> to display a fallback "Loading..." UI while it fetches.
+- ```
+  const LazyComponent = React.lazy(() => import('./HeavyComponent'));
+  --
+  {/* Suspense catches the 'promise' from React.lazy */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyComponent />
+      </Suspense>
+  ```
+- On performance
+  - use react's built in optimizations with React.memo , Pure componenets etc
+  - Optimise state management -> avoid fr3equest rerender, state uplifting, can use redux
+  - lazyLoading
+  - use keys for listing data
+  - used react virtualize for long list of data
+- React Router DOM: import BrowserRouter as provider and <Routes> -> <Route path='pathName' element={<componentName>}> -usuage: <Link to="">text</Link>
+  - use NavLink it adds active class , which we can used to set css for active elements
+- 
+- 
+  -  
