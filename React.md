@@ -57,6 +57,6 @@
   - used react virtualize for long list of data
 - React Router DOM: import BrowserRouter as provider and <Routes> -> <Route path='pathName' element={<componentName>}> -usuage: <Link to="">text</Link>
   - use NavLink it adds active class , which we can used to set css for active elements
-- 
+  - In Modern way we can use createBroswerRouter -> createRoutesFromElements -> in this way you dont have to add new element in HTML just add <RouteProvider  router={router} /> and use outlet
 - 
   -  
