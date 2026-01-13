@@ -6,3 +6,5 @@
 - Lambda functions should be pure. Pure function does not have any side-effects, Two rules for Pure functions
   1) The function does not modify anything in a away  the change is visible outside
   2) The funciton does not depend on anything that may change anything from outside.
+- Immutable can be shared or can safely be duplicated
+- List.copyOf() returns an immutable collection 
