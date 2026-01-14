@@ -141,4 +141,33 @@
 ```
 ---
 
-##
+##  Borders & Radius
+```
+.border               -> border-width: 1px;
+.border-0             -> border-width: 0;
+.border-2             -> border-width: 2px;
+.border-4             -> border-width: 4px;
+.border-t             -> border-top-width: 1px;
+.border-x-2           -> border-left-width: 2px; border-right-width: 2px;
+
+.border-solid         -> border-style: solid;
+.border-dashed        -> border-style: dashed;
+.border-dotted        -> border-style: dotted;
+
+.border-gray-200      -> border-color: #e5e7eb;
+.border-slate-700     -> border-color: #334155;
+.border-blue-500      -> border-color: #3b82f6;
+
+/* Radius */
+.rounded-none         -> border-radius: 0;
+.rounded-sm           -> border-radius: 0.125rem;
+.rounded               -> border-radius: 0.25rem;
+.rounded-md           -> border-radius: 0.375rem;
+.rounded-lg           -> border-radius: 0.5rem;
+.rounded-xl           -> border-radius: 0.75rem;
+.rounded-2xl          -> border-radius: 1rem;
+.rounded-3xl          -> border-radius: 1.5rem;
+.rounded-full         -> border-radius: 9999px;
+.rounded-t-lg         -> border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem;
+```
+
