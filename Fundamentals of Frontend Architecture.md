@@ -23,13 +23,13 @@
       - 
   **Architecture is everyone's job**
 - C4 model ( Simon Brown)  is best to explain architecture ::: Context-> Container -> Components -> Code :::
-- **Software architecture purely depends on following drivers**
+**- **Software architecture purely depends on following drivers**
   - Business Goals,
   - Quality Attributes,
   - Constraints( Technical challenge like using any framework or business constrains like below buget, or time ),
   - Functional requirements,
   - Team's experience and knowledge,
-  - Technology trends
+  - Technology trends**
 # Architectural Requirements
 
 This is a living document with the architectural requirements of FullSnack's new customer-facing web application.
@@ -65,10 +65,13 @@ For more information, check out the [Project Spec](./project-spec.md).
 
 ## Influential Functional Requirements
 
-_To be completed... by you! See Exercise 2 for more details._
-
 ## Other Influencers
 
 - Currently, the frontend team is a single team of 4 developers, but this is expected to change as the number of developers is expected to triple in size over the next year.
 - Every frontend developer on the team has experience working with React and Next.js, and some of them are also comfortable working with Vue.js and Laravel.
 - Not everyone on the team is comfortable working with TypeScript.
+
+### WHY IS MORE IMPORTANT THAT WHAT
+
+**Architectural requirement docoument** [link](https://charca.notion.site/Architectural-Requirements-Doc-f47fe67cd5ba408d840306e01eb38081)
+ 
