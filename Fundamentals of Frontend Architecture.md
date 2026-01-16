@@ -211,3 +211,7 @@ We're going to build the Customer Web Application as a monolothic server-side re
 - [Domain Model](../exercise-solutions/domain-model-final.md)
 - [ADR1: Using Next.js](./adr.md)
 - 
+
+## Implementation -> Module Introduction ( Modules -> screens -> Featuers -> components) Follow this heirarchy
+  - https://feature-sliced.github.io/ , shows example of live projects
+- 
