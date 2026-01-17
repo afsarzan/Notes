@@ -214,4 +214,14 @@ We're going to build the Customer Web Application as a monolothic server-side re
 
 ## Implementation -> Module Introduction ( Modules -> screens -> Featuers -> components) Follow this heirarchy
   - https://feature-sliced.github.io/ , shows example of live projects
+- Dependency-cruiser is a tool used by software engineers to visualize and enforce rules about how different parts of their code talk to each other.
+- Commonality is another great tool for dependencies visuallizer for mono repos
+- bundlesize is a npm library that we can use to configure project basically allowing some size to project build
+- https://www.speedcurve.com/blog/performance-budgets/
+- Sonar Lint for reducing cognative complexity
+
+
+
+## [Resources](https://frontendatscale.com/courses/frontend-architecture/wrapping-up/resources/)
+
 - 
