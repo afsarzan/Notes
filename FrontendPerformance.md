@@ -81,3 +81,35 @@ public ShallowEtagHeaderFilter shallowEtagHeaderFilter() {
     return new ShallowEtagHeaderFilter();
 }  
 ```
+
+- Use compress images -> !) lossless compression to retain perfect quality and 2) lossy compression for slightyl reduce quality for smaller size file
+- Implement Lazy Loading to Prioritize Visible Content First
+- -Native lazy loading: Supported by modern browsers using the loading="lazy" attribute:
+```
+<img src="image.jpg" loading="lazy" alt="Description">
+<video loading="lazy" controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+```
+- Using the Intersection Observer API for more control and broader support
+- Minimize JavaScript and CSS Files to Optimize Performance
+- Use Asynchronous Loading for JavaScript to Boost Rendering using **async and differ**
+- Implement Critical CSS to Improve Initial Rendering
+- Use Content Delivery Networks to Improve Website Speed
+- Use SVGs for Lightweight and Scalable Graphics for Faster Media
+- Implement Server-Side Rendering to Boost Content Delivery
+-  Optimize JavaScript Execution to Shape a Better User Experience
+-  Use HTTP/2 to Improve Resource Delivery Speed
+-  Use GZIP or Brotli Compression to Speed Up Data Transfer
+-  Defer Non-Essential CSS to Enhance Rendering
+```
+<link rel="stylesheet" href="critical.css">
+<link rel="stylesheet" href="desktop.css" media="screen and (min-width: 1024px)">
+<link rel="stylesheet" href="print.css" media="print">
+```
+- Use Cache-Control Headers to Get Optimal Resource Caching
+- Reduce CSS Complexity to Improve Front-End Efficiency
+
+
+
+
