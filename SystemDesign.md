@@ -93,3 +93,4 @@
 - Implementing algorithm will be using token bucket , like how many can process at a time with refillers(amount of request at a time)
 - another is fixed window counter allowing specified amount of request for a minute
 - Sliding window log , takes memory
+- Race Conditions : to void it use Lua scripts in Radis or atimic counters to ensure check and increment operation is thread-safe
