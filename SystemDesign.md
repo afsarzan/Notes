@@ -88,3 +88,8 @@
   - **Consistency**: the system should deliver the same results no matter how and from where we query.
   - **Availability**: the system should always return some response or result
   - **Partition Tolerance**: The system should be functional even if one partition is disconnected.
+
+## Rate Limiter:
+- Implementing algorithm will be using token bucket , like how many can process at a time with refillers(amount of request at a time)
+- another is fixed window counter allowing specified amount of request for a minute
+- Sliding window log , takes memory
