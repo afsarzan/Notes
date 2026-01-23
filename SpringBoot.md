@@ -195,4 +195,16 @@
    4) Default YAML/Properties: application.yml (The fallback/default settings).
 
 ---
-
+-  use ```@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class}``` to exclude any specific class
+-  Circuit Breaker: Stops calls if failures exceed a threshold
+-  Retry: Automatically tries again with exponential backoff
+   ```
+    @CircuitBreaker(name = "apiService", fallbackMethod = "fallback")
+    @Retry(name = "apiService")
+   ```
+- @ConditionalOnMissingBean annotation to back awaay when bean exist
+- @ControllerAdvice to handle error globally
+- ApplicationEventPublisher to publish events with publishEvent() method  adn @EventListner to listen events
+- Spring cloud sleuth or zipkins helps in monitoring and troubleshoorting
+- spring cloud gateway with built in rate-limiting capabilkities or Bucket4j
+- 
