@@ -16,7 +16,15 @@
       - load balancer if traffic is high
       - Optimize the time complexity of the code
       - use webFlux to handle a large number of concurrent connections
-      - 
+        
+         | Technique | Goal | Spring Boot Implementation |
+         | :--- | :--- | :--- |
+         | **Caching** | Reduce DB load | `@Cacheable` + EhCache/Redis |
+         | **Async Tasks** | Lower response time | `@Async` + `@EnableAsync` |
+         | **Stateless Auth** | Reduce session overhead | `SessionCreationPolicy.STATELESS` |
+         | **Compression** | Reduce payload size | `server.compression.enabled=true` |
+         | **Monitoring** | Identify bottlenecks | Spring Boot Actuator |
+      
 - Best practices for versioing REST apis
    - URL versioning
      ```
@@ -158,5 +166,33 @@
               return welcomeMessage;
           }
       }
-```
-- ,
+   ```
+- Aspect-Oriented Programming (AOP) is a programming paradigm that allows you to separate "cross-cutting concerns" (tasks that happen in many places) from your main business logic.
+   - add ``` spring-boot-starter-aop ```
+   - Annotate class with @Aspect
+      ```
+         @Aspect
+         @Component
+         public class LoggingAspect {
+         
+             // This Pointcut means: "Run this for every method in the Service package"
+             @Before("execution(* com.example.service.*.*(..))")
+             public void logBeforeMethod(JoinPoint joinPoint) {
+                 System.out.println("AOP LOG: Calling method: " + joinPoint.getSignature().getName());
+             }
+         }
+      ```
+   - 
+- spring boot decides which server to use based on the classpath dependencies
+- To get all the beans in your sprinboot application first we use autowire the applicationContect then can use method like getBeanDefinationNames()
+- For sensitive information like applicaiton secrets and sensitive configuration we can use YAML files , environment variables, and command-line argument to adjust setting for different environment , we can also use springboot integrate with sustems like spring clould config server or HashiCorp Valut, which secrely stores and provides access to secrests
+---
+**The Order of Priority**
+ - Here is the simplified hierarchy Spring Boot uses (from highest priority to lowest):
+   1) Command-Line Arguments: --server.port=9090 (Highest priority—always wins).
+   2) Environment Variables: SERVER_PORT=9090 (Common in Docker/Kubernetes).
+   3) Profile-specific YAML/Properties: application-prod.yml (Only if the "prod" profile is active).
+   4) Default YAML/Properties: application.yml (The fallback/default settings).
+
+---
+
