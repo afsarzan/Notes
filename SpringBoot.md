@@ -207,4 +207,6 @@
 - ApplicationEventPublisher to publish events with publishEvent() method  adn @EventListner to listen events
 - Spring cloud sleuth or zipkins helps in monitoring and troubleshoorting
 - spring cloud gateway with built in rate-limiting capabilkities or Bucket4j
-- 
+- @component on a class detects and create its bean whereas @Bean on method and class must implement @Configuration annotation mostly used for third part classees because we can't edit that.
+- the DispatcherServlet is the "Front Door" or the "Traffic Cop" of a Spring Boot web application. It has MultipartResolver, LocaleResolver, HandlerMapping and viewResolver
+- @controller + @ResponseBody = @RestController
