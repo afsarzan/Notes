@@ -7,4 +7,9 @@
   1) The function does not modify anything in a away  the change is visible outside
   2) The funciton does not depend on anything that may change anything from outside.
 - Immutable can be shared or can safely be duplicated
-- List.copyOf() returns an immutable collection 
+- List.copyOf() returns an immutable collection
+- Heap, stack , Method Area , Program Counter (PC) Register, Native Method Stack  are the areas that JVM uses for memory
+- If yoiu create array of Object type then only you can store any datatype in array as Object class is parent of all the types
+- 
+- 
+ 
