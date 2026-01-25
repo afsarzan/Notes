@@ -34,10 +34,32 @@
   -  Consistency:
     - Data will never go incorrect, no matter what constraints , cascades ( delete all related rows , foreign keys ) , triggers ( what to do at what time)
   -  Isolation:
-    -  when multiple transactions are executing parallely the isolation level determines how much changes of one transaction are visibile to other  
+    -  when multiple transactions are executing parallely the isolation level determines how much changes of one transaction are visibile to other
+      1. **Repeatable Reads**: consistent reads within same transactions even if other transaction committed 1st transaction would not see the changes ( if value already read).
+      2. **Read committed**; Reads within the same transaction always reads fresh value
+          - con: Multiple reads within same transaction are inconsistent
+      3. **Read uncommitted**: Read even uncommitted values from other txns -> dirty read eg: it is used systems like tracking dashboard, live data count where accuracy don't count only nearest value of those numbers mattered
+      4. Serializable: Every read is locking read and while one is txn read, others will have to wait     
   -  Durability: 
     - when transactions commits , the changes outlive the outage
-
+--- 
+## Database scaling
+ 1) **Vertical Scaling**: add more cpu , ram disk -> requires downtime during reboot
+ 2) **Horizontal Scaling**: Read replicas
+  - when read: write = 90:10
+  - You move reads to other database, so that "master" is free to do writes
+  - APi servers should know which DB to connect to get things done
+ 3)  **Replications**: Changs on one database ( master) Needs to be sent to replica to maintain consistency, there are two modes of replciation
+     1) Synchronous replication: API pushes data to master, then master pushes to slave/replica then only API will respond to request
+     2) Asynchronous replication APi pushes data to master then master reply back to API to serve request, but replica after configuration pulls the data
+ 4) **Horizontal scaling: sharding**
+     - because one node cannot handle the data/ load we split it into multiple exclusive subsets writes on a particular row/ document will go to one particular shard.
+ ---
+ ## Sharding and Partitioning 
+ - **Sharding:** method of distibuting data across multiple machines
+ - **Partitioning:** spilitting a subset of data within the same instance
+ ## Non -relational Databases
+ - It is a very broad generatization of databases that are non-relational
 
 # Distributed Systems and Related Concepts
 ## Distributed Systems
