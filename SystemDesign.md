@@ -60,6 +60,8 @@
  - **Partitioning:** spilitting a subset of data within the same instance
  ## Non -relational Databases
  - It is a very broad generatization of databases that are non-relational
+ - most non-relational database are shard out-of-the box 
+ - 
 
 # Distributed Systems and Related Concepts
 ## Distributed Systems
