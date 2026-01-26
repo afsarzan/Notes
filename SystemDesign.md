@@ -186,5 +186,9 @@
 - because of timeout and higher response times one services waits for other and this causes outage
 - A Circuit Breaker is the logical evolution of your retry strategy. While retries say "try again," a circuit breaker says "stop hitting the server entirely, it's clearly struggling." This prevents your app from worsening a server outage and saves client-side resources.
  
-## Data Redundancy and Recovery:
-- 
+## Leader Election
+- Leader Election is the process of designating a single "coordinator" or "master" node among a group of identical nodes to ensure tasks are handled by only one entity at a time.
+### Core Concepts of Leader Election
+ - **The Leader**: The single node designated as the "master" or "coordinator." It is responsible for making critical decisions, performing write operations to a database, or managing shared resources to ensure consistency.
+ - **The Followers (Standbys)**: These are redundant nodes that remain in a passive state. They constantly monitor the health of the current leader and remain ready to initiate a new election to take over if the leader fails or becomes unreachable.
+ - **Split Brain:** A critical failure state in distributed systems where network issues cause a cluster to partition. If multiple nodes believe they are the leader simultaneously, they may perform conflicting actions. Leader election protocols are designed specifically to prevent this and ensure data integrity.
