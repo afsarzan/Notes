@@ -192,3 +192,14 @@
  - **The Leader**: The single node designated as the "master" or "coordinator." It is responsible for making critical decisions, performing write operations to a database, or managing shared resources to ensure consistency.
  - **The Followers (Standbys)**: These are redundant nodes that remain in a passive state. They constantly monitor the health of the current leader and remain ready to initiate a new election to take over if the leader fails or becomes unreachable.
  - **Split Brain:** A critical failure state in distributed systems where network issues cause a cluster to partition. If multiple nodes believe they are the leader simultaneously, they may perform conflicting actions. Leader election protocols are designed specifically to prevent this and ensure data integrity.
+
+## Bloom Filter
+- Bloom filters are approximate data structures that says with 100% certainity that an element does not belong to a set. eg Instagram want to recommend reels
+- it can tell you "No" with 100% certainty, but its "Yes" is only a "Maybe."
+- To determine the size of a Bloom filter, you need to balance three variables: the number of items you plan to store ($n$), the desired false positive probability ($p$), and the amount of memory (bits) you are willing to use ($m$).
+### Bloom Filter Decision Logic
+| If Bloom Filter says... | Is it accurate? | System Action | Result for User |
+| :--- | :--- | :--- | :--- |
+| **"No"** | **100% Guaranteed** | Stop. No DB check needed. | **Available ✅** |
+| **"Yes" (True Positive)** | Accurate | Verify in Database. | **Taken ❌** |
+| **"Yes" (False Positive)** | **Incorrect** | Verify in Database. | **Available ✅** |
