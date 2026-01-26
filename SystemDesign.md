@@ -128,6 +128,9 @@
   - **LRU/LFU**:
     - **Least Recently Used (LRU)**: Once cache is full, remove the last accessed key and add a new key
     - **Least Frequently Used (LFU)**: Track the number of times a key is accessed, drop the least used when the cache is full
+  - **Lazy population:** : Read first got to the cache if data exist, return data else go to database /do heavy operation persist inthe cache return data
+  - **Eager population**: writes go to both database and cache in the same request call eg: live football match score
+  - Stale data and invalidation is the problem - we can have client side and server side caching 
 
 ## Database Scaling
 - **Indexes**:
@@ -159,4 +162,20 @@
 - Sliding window log , takes memory
 - Race Conditions : to void it use Lua scripts in Radis or atimic counters to ensure check and increment operation is thread-safe
 
-## 
+## Asynchronous processing - Message brokers and queueing
+-  brokers help two services / application communicate throught messages
+
+ **Real-World Examples in 2026**
+ - **Apache Kafka**: Primarily uses a log-based Pub/Sub model. Thousands of consumers can read from the same "topic" at their own pace.
+ - **RabbitMQ**: Uses "Exchanges." You can set up a Fanout Exchange, which is a pure implementation of the Pub/Sub pattern.
+ - **AWS SNS / Google Cloud Pub/Sub**: These are "Serverless" Pub/Sub services designed specifically for this pattern to trigger Lambda functions or push notifications.
+ - **Redis:** While primarily a cache, Redis has a very fast, lightweight PUBLISH and SUBSCRIBE command set for real-time messaging.
+
+**Configurable properties of message brokers**
+ - ** Retention period**
+ - visibility timeout -> if message is not deleted after you consume , message brokers will again help in apprear that message
+ - 
+## message streams
+ - writ4e to one and read by many semantic , this is where messsage streams comes into the picture like Kafka, Kenisis
+ - message stream are similar to messsage broker with one change: multiple types of consumers read the same message
+ - 
