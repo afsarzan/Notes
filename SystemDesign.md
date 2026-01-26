@@ -178,4 +178,13 @@
 ## message streams
  - writ4e to one and read by many semantic , this is where messsage streams comes into the picture like Kafka, Kenisis
  - message stream are similar to messsage broker with one change: multiple types of consumers read the same message
- - 
+
+**Kafka have pull strategy of consumer where as Radis has push strategy to consumers**
+
+## Circuit Breakers: 
+- it prevents cascading failures
+- because of timeout and higher response times one services waits for other and this causes outage
+- A Circuit Breaker is the logical evolution of your retry strategy. While retries say "try again," a circuit breaker says "stop hitting the server entirely, it's clearly struggling." This prevents your app from worsening a server outage and saves client-side resources.
+ 
+## Data Redundancy and Recovery:
+- 
