@@ -203,3 +203,27 @@
 | **"No"** | **100% Guaranteed** | Stop. No DB check needed. | **Available ✅** |
 | **"Yes" (True Positive)** | Accurate | Verify in Database. | **Taken ❌** |
 | **"Yes" (False Positive)** | **Incorrect** | Verify in Database. | **Available ✅** |
+
+ ## consistent Hashing
+ - It solves Data Owenership and its a popular algorithm
+ - a simple implementation of hash function in javascript
+ ```
+   async function generateHash(message) {
+    // 1. Encode the message into a Uint8Array
+    const msgUint8 = new TextEncoder().encode(message);
+  
+    // 2. Hash the message using the SHA-256 algorithm
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+  
+    // 3. Convert the ArrayBuffer to a Hexadecimal string
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return hashHex;
+  }
+  
+  // Usage:
+  generateHash("Hello World").then(hash => console.log(hash));
+  // Output: a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e
+```
+- 
